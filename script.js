@@ -3,7 +3,8 @@ const currencySelectToConvert = document.querySelector(".currency-select-to-conv
 const currencySelectOfConvert = document.querySelector(".currency-select-of-convert")
 
 function updateValueForConversion() {
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+    let inputCurrencyValue = document.querySelector(".input-currency").value
+    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."));
     const currencyValueToConvert = document.getElementById("currency-convert")
     
     if (currencySelectOfConvert.value == "real") {
@@ -38,7 +39,8 @@ function updateValueForConversion() {
 }
 
 function convertValues() {
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+    let inputCurrencyValue = document.querySelector(".input-currency").value
+    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."))
     const currencyValueConverted = document.querySelector(".currency-value")
 
     // taxas fixas simuladas (1 unidade de cada moeda = quantos reais)
@@ -124,7 +126,8 @@ function changeCurrencyConverted(){
 
 function changeCurrencyConversion(){
     const currencyNameToConvert = document.querySelector(".currency")
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+    let inputCurrencyValue = document.querySelector(".input-currency").value
+    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."));
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em real
     const currencyConvertImage = document.querySelector(".currency-convert-img")
 
