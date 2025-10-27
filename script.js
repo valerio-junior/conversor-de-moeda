@@ -174,8 +174,33 @@ function changeCurrencyConversion(){
     
 }
 
+function replaceValuePlaceholder(){
+    const inputCurrencyPlaceholder = document.querySelector(".input-currency")
+
+    if (currencySelectOfConvert.value == "real") {
+        inputCurrencyPlaceholder.placeholder = "R$ 10.000,00"
+    }
+   
+    if (currencySelectOfConvert.value == "dolar") {
+        inputCurrencyPlaceholder.placeholder = "US$ 10,000.00"
+    }
+
+    if (currencySelectOfConvert.value == "euro") {
+        inputCurrencyPlaceholder.placeholder = "10.000 €"
+    }
+
+    if (currencySelectOfConvert.value == "libra") {
+        inputCurrencyPlaceholder.placeholder = "£10,000.00"
+    }
+
+    if (currencySelectOfConvert.value == "bitcoin") {
+        inputCurrencyPlaceholder.placeholder = "₿10,000.00000000"
+    }
+}
+
 
 currencySelectOfConvert.addEventListener("change", changeCurrencyConversion)
+currencySelectOfConvert.addEventListener("change", replaceValuePlaceholder)
 currencySelectToConvert.addEventListener("change", changeCurrencyConverted)
 convertButton.addEventListener("click", updateValueForConversion)
 convertButton.addEventListener("click", convertValues)
