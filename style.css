@@ -7,24 +7,28 @@
 }
 
 body {
-    background-color: #8A51FC;
-    /* margin-top: 10px;
-    background-image: url(assets/imageconversion.jpg);
-    background-size: cover; */
+    /* background-color: #8A51FC; */
+    height: 100vh;
+    background-image: url('assets/imagebackground.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.logo {
+/* .logo {
     width: 300px;
     display: block;
     margin: 20px auto;
-}
+} */
 
 main {
     width: 375px;
     background: #F4F4F4;
     border-radius: 20px;
     margin: 0 auto 20px;
-    padding: 44px 24px 23px;
+    padding: 44px 24px 23px;  
 }
 
 label {
