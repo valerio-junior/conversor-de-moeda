@@ -4,7 +4,18 @@ const currencySelectOfConvert = document.querySelector(".currency-select-of-conv
 
 function updateValueForConversion() {
     let inputCurrencyValue = document.querySelector(".input-currency").value
-    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."));
+    // Remove tudo que não seja número, vírgula ou ponto
+    inputCurrencyValue = inputCurrencyValue.replace(/[^\d,.-]/g, "")
+
+    // Substitui vírgula por ponto e remove pontos extras (milhar)
+    inputCurrencyValue = inputCurrencyValue.replace(",", ".")
+
+    // Converte para número
+    // inputCurrencyValue = parseFloat(inputCurrencyValue)
+    
+
+    if (isNaN(inputCurrencyValue)) inputCurrencyValue = 0
+
     const currencyValueToConvert = document.getElementById("currency-convert")
     
     if (currencySelectOfConvert.value == "real") {
@@ -25,10 +36,10 @@ function updateValueForConversion() {
         }).format(inputCurrencyValue)
     }
 
-    if (currencySelectOfConvert.value == "euro") {
+    if (currencySelectOfConvert.value == "libra") {
         currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-GB", {
         style: "currency", currency: "GBP"
-        }).format(inputCurrencyValue / libraToday)
+        }).format(inputCurrencyValue)
     }
 
     if (currencySelectOfConvert.value == "bitcoin") {
@@ -40,7 +51,15 @@ function updateValueForConversion() {
 
 function convertValues() {
     let inputCurrencyValue = document.querySelector(".input-currency").value
-    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."))
+    // Remove tudo que não seja número, vírgula ou ponto
+    inputCurrencyValue = inputCurrencyValue.replace(/[^\d,.-]/g, "")
+
+    // Substitui vírgula por ponto e remove pontos extras (milhar)
+    inputCurrencyValue = inputCurrencyValue.replace(",", ".")
+
+    // Converte para número
+    // inputCurrencyValue = parseFloat(inputCurrencyValue) //linha que estava dando o bug
+
     const currencyValueConverted = document.querySelector(".currency-value")
 
     // taxas fixas simuladas (1 unidade de cada moeda = quantos reais)
@@ -127,7 +146,16 @@ function changeCurrencyConverted(){
 function changeCurrencyConversion(){
     const currencyNameToConvert = document.querySelector(".currency")
     let inputCurrencyValue = document.querySelector(".input-currency").value
-    inputCurrencyValue = parseFloat(inputCurrencyValue.replace(",", "."));
+    
+    // Remove tudo que não seja número, vírgula ou ponto
+    inputCurrencyValue = inputCurrencyValue.replace(/[^\d,.-]/g, "")
+
+    // Substitui vírgula por ponto e remove pontos extras (milhar)
+    inputCurrencyValue = inputCurrencyValue.replace(/\./g, "").replace(",", ".")
+
+    // Converte para número
+    // inputCurrencyValue = parseFloat(inputCurrencyValue) //linha que estava dando o bug
+
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em real
     const currencyConvertImage = document.querySelector(".currency-convert-img")
 
@@ -172,6 +200,7 @@ function changeCurrencyConversion(){
             style: "currency", currency: "BTC"
         }).format(inputCurrencyValue) //Vai formatar o numero informado pelo cliente no input para bitcoins.
     }
+
 
     convertValues()
     
