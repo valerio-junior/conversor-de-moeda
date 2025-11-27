@@ -103,3 +103,26 @@ section {
     font-weight: 700;
     font-size: 20px;
 }
+
+@media(max-width: 1400px) {
+    input, select {
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        height: 40px;
+    }
+
+    section {
+        margin-top: 25px;
+    }
+
+    img {
+        width: 45px;
+    }
+
+    .arrow-img {
+        width: 30px;
+    }
+}

@@ -99,7 +99,7 @@ function convertValues() {
     currencyValueConverted.style.fontSize = "20px"
     currencyValueConverted.style.fontWeight = "700"
 
-    if (from == to) {
+    if (from === to) {
         alert("Por favor, informe moedas diferentes para conversão")
         currencyValueConverted.innerHTML = "Vamos la amigão, não tem porque converter a mesma moeda !!"
         currencyValueConverted.style.textAlign= "center"
